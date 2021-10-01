@@ -1,0 +1,3 @@
+﻿Summary of the class: 01 October 2021
+        
+        As we knew from the previous class, sorted lists are much more effective than the random ones. That is why in this class we’ve discussed different kinds of sorting algorithms during the class. We’ve discussed the selection sort and the bubble sort. The difference between them is just the element of the array that we fix. In the selection sort we fix the correct minimum but when it comes to the bubble sort we fix the correct max. Both the algorithm of calculation and hence the complexity are equal in those cases.
