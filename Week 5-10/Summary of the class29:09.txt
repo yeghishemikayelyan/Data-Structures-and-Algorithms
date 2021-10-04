@@ -1,0 +1,5 @@
+﻿Summary of the class: 29 Sep 2021
+
+
+        The main topic of the class were the single and doubly linked lists. We discussed the difference between them. The difference is that a single linked list has a reference only to the next element of the list, while in the doubly linked list there is a space to refer to the previous element as well. Also there is another type of a list called circularly linked list, but as mentioned it is not in a large use. 
+        Also, we’ve discussed the search operation, calculated it’s complexity in two different scenarios.
