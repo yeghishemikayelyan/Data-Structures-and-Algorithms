@@ -1,0 +1,3 @@
+﻿Summary of the class: 06 October 2021
+        
+        Today’s summary will not be so long, as basically what we have done during the class, was the implementation of the selection sort. We had a list with elements with indexes from 0 to n-1, and the key to success in the code was fixing the largest element. With each step we fix the last element, so at first that’s the (n-1)-th element, then the (n-2)-th an so on until element with index 2. I think that’s all.
