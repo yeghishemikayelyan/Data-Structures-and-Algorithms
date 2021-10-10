@@ -1,0 +1,4 @@
+﻿Summary of the class: 08 October 2021
+        
+        The class was concentrated on understanding how the merge sorting algorithms work. We tried to illustrate it using boxes inside some bigger boxes. What does that mean. Every big box uses the output of the smaller box inside it, which itselves uses the output of the smaller box inside it. 
+        Then we tried to write the interpretation of the algorithm in C.
