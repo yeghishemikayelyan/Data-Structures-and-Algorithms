@@ -1,0 +1,3 @@
+﻿Summary of the class: 11 October 2021
+        
+        During the whole class, we tried to interpret the merge sort algorithm. When it comes to me, Ruben and I have done it in Python, however, it’s not exactly what we want. So there is some work left to be done in the upcoming class.
