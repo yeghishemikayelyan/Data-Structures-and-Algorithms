@@ -1,0 +1,10 @@
+﻿Class Summary 27.10
+
+
+During the class we’ve discussed the quick sorting algorithm. As I understand it, what it’s doing is comparing and switching elements in an array. 
+
+
+To go deeper, we have a pivot in the algorithm, which we select almost randomly. We place the pivot in the very last position of the array. The algorithm should understand either to switch an element or to leave it in its place. Starting from the left, if we increase the index until we reach a number that is bigger than the pivot. Once we reach it, we start searching for a number from the right part of the array that is smaller than the pivot. Once the numbers are reached we switch them. The process continues until the index from left is equal to the index from right. At this point we already know the exact position of the pivot. 
+
+
+We do this process until all elements of the array are placed right.
