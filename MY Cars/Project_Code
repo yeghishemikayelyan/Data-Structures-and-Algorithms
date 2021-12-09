@@ -1,0 +1,71 @@
+import pandas as pd
+filtered_data = file
+header = pd.read_csv("/content/Final_merged_data.csv", nrows=0)
+k = True
+l = True
+t = True
+final_data = pd.DataFrame()
+while k == True and l == True:
+  x = input("Select the filter: ")
+  if x in header:
+    if x == 'Year' or x == 'Price' or x == 'EnigneVolume':
+      y = input("Select the minimum value: ")
+      z = input("Select the maximum value: ")
+      y = float(y)
+      z = float(z)
+      i = y
+      while i <= z:
+        filtered_data = file[file[x]==i]
+        left = filtered_data
+        right = final_data
+        final_data = pd.concat([filtered_data, final_data]) 
+        i = i + 1
+    else:
+      y = input("Select the subfilter: ")
+      if y in open("/content/Final_merged_data.csv").read():
+        k = False
+      else:
+        while l == True:
+          y = input("Please, select an existing subfilter ")
+          if y in open("/content/Final_merged_data.csv").read():
+            l = False
+  else :
+    while l == True:
+      x = input("Select an existing filter: ")
+      if x in header:
+        if x == 'Year' or x == 'Price' or x == 'EnigneVolume':
+          y = input("Select the minimum value: ")
+          z = input("Select the maximum value: ")
+          y = float(y)
+          z = float(z)
+          i = y
+          while i <= z:
+            filtered_data = file[file[x]==i]
+            left = filtered_data
+            right = final_data
+            final_data = pd.concat([filtered_data, final_data]) 
+            i = i + 1
+            l = False
+      else:  
+        y = input("Select the subfilter: ")
+        if y in open("/content/Final_merged_data.csv").read():
+          l = False
+        else:
+          while l == True:
+            y = input("Please, select an existing subfilter ")
+            if y in open("/content/Final_merged_data.csv").read():
+              l = False
+  filtered_data = file[file[x]==y] 
+  final_data = pd.concat([filtered_data, final_data])
+  z = input("Are you done?")
+  while t == True:
+    if z == "yes" or z == "Yes" or z == "YES":
+      k = False
+      t = False
+    elif z == "no" or z == "No" or z == "NO":
+      k = True
+      t = False
+    else: 
+      z = input("Please answer either 'Yes' or 'No' ")
+      t = True
+final_data.to_csv(r'/content/DataProject.csv')   
