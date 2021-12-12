@@ -1,0 +1,71 @@
+import glob
+import pandas as pd
+file = pd.read_csv("/content/Final_merged_data.csv")
+header = pd.read_csv("/content/Final_merged_data.csv", nrows=0)
+values = pd.read_csv("/content/Final_merged_data.csv", nrows=15000)
+filter = pd.DataFrame()
+x_status = False
+y_is_digit = False
+z_is_digit = False
+add_filter_status = True
+add_filter_correct = False
+while add_filter_status == True:
+  x = input("Insert a Filter, please: ")
+  if x not in header:
+    while x_status == False:
+      x = input("The Filter was not valid, please insert a valid Filter: ")
+      if x in header:
+        x_status = True
+  if x == "Year" or x == "Price" or x == "Horsepower" or x == "EngineVolume":
+    y = input("Select the minimum value: ")
+    if y.isnumeric(): 
+      y_is_digit = True
+    else: 
+      while y_is_digit == False:
+        y = input("Please, insert a Number: ")
+        if y.isnumeric():
+          y_is_digit = True
+    z = input("Select the maximum value: ")
+    if z.isnumeric(): 
+      z_is_digit = True
+    else: 
+      while z_is_digit == False:
+        z = input("Please, insert a Number: ")
+        if z.isnumeric():
+          z_is_digit = True
+    y = float(y)
+    z = float(z)
+    while y <= z:
+      filter_1 = file[file[x]==y]
+      left = filter_1
+      right = filter
+      filter = pd.concat([filter_1, right])
+      y = y + 1
+    file = filter
+  else:
+    y = input("Please, Insert a subfilter ")
+    if y in open("/content/Final_merged_data.csv").read():
+      y_status = True
+    else:
+      while y_status == False:
+        y = input("Please, Insert a valid subfilter ")
+        if y in open("/content/Final_merged_data.csv").read():
+          y_status = True
+    file = file[file[x]==y]
+  add_filter = input("Would you like to add more filters? ")
+  if add_filter == "yes" or add_filter == "Yes" or add_filter == "YES":
+    add_filter_status = True
+  elif add_filter == "no" or add_filter == "No" or add_filter == "NO":
+    add_filter_status = False
+  else:
+    while add_filter_correct == False:
+      add_filter = input("Please, answer Yes or No: ")
+      if add_filter == "yes" or add_filter == "Yes" or add_filter == "YES":
+        add_filter_status = True
+        add_filter_correct = True
+      elif add_filter == "no" or add_filter == "No" or add_filter == "NO":
+        add_filter_status = False
+        add_filter_correct = True  
+      else:
+        add_filter_correct = False
+file.to_csv(r'/content/file.csv')   
