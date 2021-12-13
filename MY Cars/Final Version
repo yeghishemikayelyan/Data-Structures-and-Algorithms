@@ -2,9 +2,9 @@ import glob
 import pandas as pd
 file = pd.read_csv("/content/Final_merged_data.csv")
 header = pd.read_csv("/content/Final_merged_data.csv", nrows=0)
-values = pd.read_csv("/content/Final_merged_data.csv", nrows=15000)
 filter = pd.DataFrame()
 x_status = False
+y_status = False
 y_is_digit = False
 z_is_digit = False
 add_filter_status = True
@@ -44,12 +44,12 @@ while add_filter_status == True:
     file = filter
   else:
     y = input("Please, Insert a subfilter ")
-    if y in open("/content/Final_merged_data.csv").read():
+    if y in open("/content/Final_merged_data.csv").read() and y not in header:
       y_status = True
     else:
       while y_status == False:
         y = input("Please, Insert a valid subfilter ")
-        if y in open("/content/Final_merged_data.csv").read():
+        if y in open("/content/Final_merged_data.csv").read() and y not in header:
           y_status = True
     file = file[file[x]==y]
   add_filter = input("Would you like to add more filters? ")
@@ -68,4 +68,5 @@ while add_filter_status == True:
         add_filter_correct = True  
       else:
         add_filter_correct = False
-file.to_csv(r'/content/file.csv')   
+#file.to_csv(r'/content/file.csv')   
+print(file)
